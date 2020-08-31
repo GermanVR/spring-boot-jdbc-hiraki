@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: @artifactId@
+    version: @project.version@
+
+  datasource:
+    url: jdbc:oracle:thin:@localhost:49161/xe
+    username: system
+    password: oracle
+    driver: oracle.jdbc.OracleDriver
+    poolName: ${spring.application.name}-pool
+    maximumPoolSize: 300
+    minimumIdle: 1
+    idleTimeoutMs: 10000
+    connectionTimeoutMs: 10000
+#    hikari:
+#      schema: MGUARINO
+    properties:
+      cachePrepStmts: true
+      prepStmtCacheSize: 256
+      prepStmtCacheSqlLimit: 2048
+      useServerPrepStmts: true
+
+
+server:
+  port: 9093
+
+# logging
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+  
